@@ -1,0 +1,130 @@
+<div class="w-full p-4 sm:p-12.5 xl:p-17.5">
+  <h2 class="mb-9 text-2xl font-bold text-black sm:text-title-xl2">
+    Création du compte
+  </h2>
+  <span class="mb-1.5 block font-medium text-center text-2xl"
+    >Informations du business</span
+  >
+
+  <form [formGroup]="businessForm" (ngSubmit)="save()">
+    <div class="mb-4">
+      <label class="">Registration Number</label>
+      <div class="relative">
+        <input
+          type="file"
+          class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent font-normal outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:px-5 file:py-3 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
+          formControlName="registrationFile"
+          [ngClass]="{
+            input_errors: registrationFile?.errors && registrationFile?.touched
+          }"
+        />
+
+        @if(registrationFile?.errors && registrationFile?.touched){
+        <div>
+          @if(registrationFile?.errors?.['required']){
+          <p class="text-red-600">Uploader le fichier de création</p>
+          }
+        </div>
+
+        }
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="">TAX NUMBER DOC</label>
+      <div class="relative">
+        <input
+          type="file"
+          class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent font-normal outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:px-5 file:py-3 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
+          formControlName="taxNumberFile"
+          [ngClass]="{
+            input_errors: taxNumberFile?.errors && taxNumberFile?.touched
+          }"
+        />
+
+        @if(taxNumberFile?.errors && taxNumberFile?.touched){
+        <div>
+          @if(taxNumberFile?.errors?.['required']){
+          <p class="text-red-600">Uplaoder le fichier des impots</p>
+          }
+        </div>
+
+        }
+      </div>
+    </div>
+    <div class="mb-4">
+      <label class="">National ID / PASSPORT</label>
+      <div class="relative">
+        <input
+          type="file"
+          class="w-full cursor-pointer rounded-lg border-[1.5px] border-stroke bg-transparent font-normal outline-none transition file:mr-5 file:border-collapse file:cursor-pointer file:border-0 file:border-r file:border-solid file:border-stroke file:bg-whiter file:px-5 file:py-3 file:hover:bg-primary file:hover:bg-opacity-10 focus:border-primary active:border-primary disabled:cursor-default disabled:bg-whiter"
+          formControlName="idFile"
+          [ngClass]="{
+            input_errors: idFile?.errors && idFile?.touched
+          }"
+        />
+
+        @if(idFile?.errors && idFile?.touched){
+        <div>
+          @if(idFile?.errors?.['required']){
+          <p class="text-red-600">Uploader votre pièce d'identité</p>
+          }
+        </div>
+
+        }
+      </div>
+    </div>
+
+    <div class="mb-7 mt-10 flex-row flow-root">
+      <button
+        type="button"
+        routerLink="/sign-up/compagnie"
+        class="btn-primary ml-7 float-left"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="w-5 h-5 ms-3 mt-1"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M10.5 19.5 3 12m0 0 7.5-7.5M3 12h18"
+          />
+        </svg>
+
+        <span>Précedent</span>
+      </button>
+      <button
+        [disabled]="businessForm.invalid"
+        class="btn-primary mr-7 float-right"
+      >
+        <span>Suivant</span>
+        <svg
+          class="w-3.5 h-3.5 ms-3 mt-1"
+          aria-hidden="true"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 14 10"
+        >
+          <path
+            stroke="currentColor"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M1 5h12m0 0L9 1m4 4L9 9"
+          />
+        </svg>
+      </button>
+    </div>
+
+    <div class="mt-6 text-center flex-row">
+      <p class="font-medium">
+        Vous avez un compte ?
+        <a href="#" class="text-primary">Connectez vous</a>
+      </p>
+    </div>
+  </form>
+</div>
